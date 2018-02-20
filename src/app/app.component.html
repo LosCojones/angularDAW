@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h1>{{model?.user}}'s To Do List
+    <span class="label label-default"
+          [ngClass]="{'label-success':tnIncompletas()<2, 'label-warning':tnIncompletas()>2}"
+          [class.hide]="tnIncompletas()==0"> {{tnIncompletas()}}</span>
+  </h1>
+</div>
+
+<div class="panel">
+  <app-reactive></app-reactive>
+  <!--<app-callbackhell></app-callbackhell>-->
+  <!--<div class="input-group">-->
+    <!--<input type="text" class="form-control" #item>-->
+      <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-default"-->
+        <!--(click)="addItem(item.value); item.value=''"-->
+        <!--&gt;Add</button>-->
+      <!--</span>-->
+  <!--</div>-->
+  <!--<table class="table table striped">-->
+    <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>Tarea</th>-->
+      <!--<th>Completada</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--<tr *ngFor="let item of model?.items | ordenaTareas | filtroDone : mostrarTodas">-->
+      <!--<td>{{item.action}}</td>-->
+      <!--<td>{{item.done}}</td>-->
+      <!--<td><input type="checkbox" [(ngModel)] = "item.done"></td>-->
+      <!--<td><app-prioridad-->
+        <!--[prioridad] = "item.prioridad"-->
+        <!--[tarea]="item.action"-->
+        <!--(nuevaPrioridad)="nuevaPrioridad($event)"-->
+      <!--&gt;</app-prioridad></td>-->
+      <!--<td>{{item | json}}</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+
+  <!--<div class="checkbox-inline">-->
+    <!--<label for="">-->
+      <!--<input type="checkbox"-->
+      <!--[(ngModel)] = "mostrarTodas"-->
+      <!--&gt;Pendientes</label>-->
+  <!--</div>-->
+
+</div>
