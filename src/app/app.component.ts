@@ -33,6 +33,10 @@ export class AppComponent {
     // this.ordenaTareas();
   }
 
+  removeItem(accion) {
+    this.model.items.splice(accion,1);
+  }
+
   findTarea(elemento) {
     return elemento.action == this;
   }

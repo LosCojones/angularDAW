@@ -7,43 +7,46 @@
 </div>
 
 <div class="panel">
-  <app-reactive></app-reactive>
+  <!--<app-reactive></app-reactive>-->
   <!--<app-callbackhell></app-callbackhell>-->
-  <!--<div class="input-group">-->
-    <!--<input type="text" class="form-control" #item>-->
-      <!--<span class="input-group-btn">-->
-        <!--<button class="btn btn-default"-->
-        <!--(click)="addItem(item.value); item.value=''"-->
-        <!--&gt;Add</button>-->
-      <!--</span>-->
-  <!--</div>-->
-  <!--<table class="table table striped">-->
-    <!--<thead>-->
-    <!--<tr>-->
-      <!--<th>Tarea</th>-->
-      <!--<th>Completada</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr *ngFor="let item of model?.items | ordenaTareas | filtroDone : mostrarTodas">-->
-      <!--<td>{{item.action}}</td>-->
-      <!--<td>{{item.done}}</td>-->
-      <!--<td><input type="checkbox" [(ngModel)] = "item.done"></td>-->
-      <!--<td><app-prioridad-->
-        <!--[prioridad] = "item.prioridad"-->
-        <!--[tarea]="item.action"-->
-        <!--(nuevaPrioridad)="nuevaPrioridad($event)"-->
-      <!--&gt;</app-prioridad></td>-->
-      <!--<td>{{item | json}}</td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
-  <!--</table>-->
+  <div class="input-group">
+    <input type="text" class="form-control" #item>
+      <span class="input-group-btn">
+        <button class="btn btn-default"
+        (click)="addItem(item.value); item.value=''"
+        >Add</button>
+      </span>
+  </div>
+  <table class="table table striped">
+    <thead>
+    <tr>
+      <th>Tarea</th>
+      <th>Completada</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of model?.items | ordenaTareas | filtroDone : mostrarTodas; let i = index">
+      <td>{{item.action}}</td>
+      <td>{{item.done}}</td>
+      <td><button type="button" class="btn btn-default" (click)="removeItem(i)">
+        <span class="glyphicon glyphicon-remove-sign"></span>
+      </button></td>
+      <td><input type="checkbox" [(ngModel)] = "item.done"></td>
+      <td><app-prioridad
+        [prioridad] = "item.prioridad"
+        [tarea]="item.action"
+        (nuevaPrioridad)="nuevaPrioridad($event)"
+      ></app-prioridad></td>
+      <td>{{item | json}}</td>
+    </tr>
+    </tbody>
+  </table>
 
-  <!--<div class="checkbox-inline">-->
-    <!--<label for="">-->
-      <!--<input type="checkbox"-->
-      <!--[(ngModel)] = "mostrarTodas"-->
-      <!--&gt;Pendientes</label>-->
-  <!--</div>-->
+  <div class="checkbox-inline">
+    <label for="">
+      <input type="checkbox"
+      [(ngModel)] = "mostrarTodas"
+      >Pendientes</label>
+  </div>
 
 </div>
